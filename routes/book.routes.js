@@ -7,8 +7,8 @@ router.get('/', book.listBook);
 
 router.get('/:bookName', book.searchBook);
 
-router.post('/', book.createTask);
-router.patch('/:id', book.updateTask);
-router.delete('/:id', book.deleteTask);
+router.post('/', book.createBook);
+router.patch('/:id', book.updateBook);
+router.delete('/:id', book.deleteBook);
 
 module.exports = router;

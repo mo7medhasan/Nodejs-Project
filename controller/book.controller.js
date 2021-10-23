@@ -22,7 +22,7 @@ exports.searchBook = (req, res)=>{
 
 
 
-exports.createTask = (req, res)=>{
+exports.createBook = (req, res)=>{
     const task = new List({
         userId:req.body.userId,
         title:req.body.title,
@@ -30,21 +30,21 @@ exports.createTask = (req, res)=>{
     })
     task.save()
     .then(data =>{
-        res.send({message:"task was created successfully"})
+        res.send({message:"book was created successfully"})
     }).catch(err => {
         res.send(err)
     })
 };
 
 
-exports.updateTask = (req, res)=>{
+exports.updateBook = (req, res)=>{
     List.findByIdAndUpdate(req.params.id , {
         title:req.body.title,
         tags:req.body.tags,
         updatedAt:Date.now()
     }, {new: true} )
     .then (task=> {
-        res.send({message:"task was edited successfully"})
+        res.send({message:"Book was edited successfully"})
     }).catch(err => {
         res.send(err)
     })
@@ -52,7 +52,7 @@ exports.updateTask = (req, res)=>{
 
 
 
-exports.deleteTask = (req, res)=>{
+exports.deleteBook = (req, res)=>{
     List.findOneAndDelete({_id: req.params.id}, (err, result) => {
         if (err) res.send(500, err)
         res.send(result)
